@@ -1,4 +1,18 @@
-# Getting Started with Create React App
+# Udacity Would You Rather Project
+
+- **AIM**: web app that lets a user play the “Would You Rather?”
+- Functionality:
+  - A user is asked a question in the form: “Would you rather [option A] or [option B] ?”.
+  - Answering "neither" or "both" is against the rules
+  - In your app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
+  - check rubric rules
+
+# Installation and App Launcing
+
+```
+$ yarn or npm install
+$ yarn start or npm start
+```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
