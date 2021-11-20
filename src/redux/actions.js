@@ -9,36 +9,31 @@ import {
   LOGOUT_USER,
 } from "./actionTypes";
 
-export const fetchUsersSuccess = (users) => ({
+export const getUsersSuccess = (users) => ({
   type: FETCH_USERS,
   payload: users,
 });
 
-// async functions
-export const fetchUsers = () => async (dispatch) => {
+export const getUsers = () => async (dispatch) => {
   dispatch(showLoading());
   const users = await API._getUsers();
-  dispatch(fetchUsersSuccess(users));
+  dispatch(getUsersSuccess(users));
   dispatch(hideLoading());
 };
 
-// questions
-
-export const fetchQuestionsSuccess = (questions) => ({
+export const getQuestions = (questions) => ({
   type: FETCH_QUESTIONS,
   payload: questions,
 });
 
-// async functions
 export const fetchQuestions = () => async (dispatch) => {
   dispatch(showLoading());
 
   const questions = await API._getQuestions();
-  dispatch(fetchQuestionsSuccess(questions));
+  dispatch(getQuestions(questions));
   dispatch(hideLoading());
 };
 
-// save Questions
 export const saveNewQuestionSuccess = () => ({
   type: SAVE_NEW_QUESTION,
 });
@@ -72,7 +67,7 @@ export const saveQuestionAnswer =
     });
     dispatch(saveQuestionAnswerSuccess());
     dispatch(hideLoading());
-    dispatch(fetchUsers());
+    dispatch(getUsers());
     dispatch(fetchQuestions());
   };
 

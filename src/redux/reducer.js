@@ -4,6 +4,10 @@ import {
   LOGIN_USER,
   LOGOUT_USER,
 } from "./actionTypes";
+
+import { combineReducers } from "redux";
+import { loadingBarReducer } from "react-redux-loading-bar";
+
 export const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_USERS:
@@ -32,3 +36,10 @@ export const loggedInUserReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const mainReducer = combineReducers({
+  users: usersReducer,
+  questions: questionsReducer,
+  loggedInUser: loggedInUserReducer,
+  loadingBar: loadingBarReducer,
+});

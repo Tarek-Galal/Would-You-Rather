@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { connect } from "react-redux";
-import { fetchQuestions, fetchUsers } from "../redux/actions";
+import { fetchQuestions, getUsers } from "../redux/actions";
 
 import LoginPage from "./LogInPage";
 import Navbar from "./Navbar";
@@ -52,7 +52,7 @@ const NotFoundPageWithAuth = requireAuthorization(NotFoundPage);
 
 class App extends React.Component {
   componentDidMount() {
-    this.props.fetchUsers();
+    this.props.getUsers();
     this.props.fetchQuestions();
   }
 
@@ -115,7 +115,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchUsers: () => dispatch(fetchUsers()),
+  getUsers: () => dispatch(getUsers()),
   fetchQuestions: () => dispatch(fetchQuestions()),
 });
 
